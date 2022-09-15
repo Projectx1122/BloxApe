@@ -1,12 +1,16 @@
 :root { font-size: 16px; }
 body {
     font-family: 'Poppins', sans-serif !important;
-    background:#111019;
+    background: #EFECFF;
     line-height: 1.875rem;
 }
 ul { list-style: none; }
 a, a:hover { text-decoration: none !important;}
 a { color: inherit !important; }
+
+:root {
+    --fc-primary: #9c3795;
+}
 
 /* ============== Utility ============== */
 
@@ -24,7 +28,7 @@ a { color: inherit !important; }
 .fc-light-nft { color: rgba(236, 235, 233, 0.4) !important; }
 .fc-light-nft-desc { color: rgba(255, 255, 255, 0.6) !important; }
 .fc-light-footer { color: rgba(255, 255, 255, 0.45) !important; }
-.fc-primary { color: #9656FF; }
+.fc-primary { color: var(--fc-primary); }
 .fc-gradient-primary { 
     background: linear-gradient(180deg, #9656FF 0%, #721CFE 107.72%);
     background-clip: text;
@@ -40,7 +44,6 @@ a { color: inherit !important; }
 
 /* ============== Custom element ============== */
 
-.bg-f-navbar { background: #151320; }
 .f-navbar { padding: 1em 1.5em; }
 .f-navbar-content {
     margin-left: -300px;
@@ -49,7 +52,6 @@ a { color: inherit !important; }
     z-index: 1500;
     left: 0;
     top: 0;
-    background: #151320;
     width: 250px;
     height: 100%;
     padding: 2em;
@@ -129,21 +131,18 @@ a { color: inherit !important; }
 }
 
 .f-btn.f-btn-primary {
-    background: linear-gradient(180deg, #9656FF 0%, #721CFE 107.72%);
+    background: linear-gradient(180deg, #e11958 0%, var(--fc-primary) 107.72%);
     box-shadow: 0px 6px 34px rgba(132, 59, 255, 0.15);
-    color: #EFECFF;
+    color: #ffffff !important;
 }
 .f-btn.f-btn-primary:focus {
-    background: linear-gradient(180deg, #9656FF 0%, #4c0eaf 107.72%);
+    background: linear-gradient(180deg, var(--fc-primary) 0%, #e11958 107.72%);
 }
 
 .f-btn-outline {
-    border: 1px solid #FFFFFF;
-    color: #FFFFFF;
+    border: 1px solid var(--fc-primary);
+    color: var(--fc-primary) !important;
     background: none;
-}
-.f-btn.f-btn-outline:focus {
-    border: 1px solid #f5f7ff;
 }
 
 .f-btn.f-btn-outline-primary {
@@ -196,8 +195,8 @@ a { color: inherit !important; }
 }
 
 .f-label.f-label-outline-primary {
-    border: 1px solid #9656FF;
-    color: #ffffff !important;
+    border: 1px solid var(--fc-primary);
+    color: #fff !important;
     background: none !important;
     border-radius: 1em;
     padding: .25em 1em;
@@ -207,7 +206,6 @@ a { color: inherit !important; }
 
 .f-card-mint {
     position: relative;
-    background: rgba(21, 19, 32, 0.7);
     padding: 1em;
     min-height: 15em;
     border: 1px solid #9656FF;
@@ -217,20 +215,8 @@ a { color: inherit !important; }
     text-align: center;
 }
 
-.f-card-mint-overlay {
-    position: absolute;
-    width: 12em;
-    height: 12em;
-    background: #9656FF;
-    mix-blend-mode: normal;
-    opacity: 0.6;
-    border-radius: 50%;
-    border: 1px solid #9656FF;
-    filter: blur(100px);
-    top: -5em;
-    left: 50%;
-    transform: translateX(-50%);
-    z-index: -1;
+.f-card-mint.active {
+    background: #111019;
 }
 
 .f-gas-fee-icon {
@@ -320,8 +306,8 @@ a { color: inherit !important; }
 }
 
 .f-nav-tabs.nav-tabs .nav-link {
-    color: rgba(255, 255, 255, 0.4);
-    border: 1px solid rgba(255, 255, 255, 0.4);
+    color: var(--fc-primary);
+    border: 1px solid var(--fc-primary);
     border-radius: .85em !important;
     min-width: 8em;
     display: inline-block;
@@ -333,9 +319,9 @@ a { color: inherit !important; }
 }
 
 .f-nav-tabs.nav-tabs .nav-item.show .nav-link, .nav-tabs .nav-link.active {
-    background-color: rgba(21, 19, 32, 0);
-    border: 1px solid #9656FF;
-    color: #9656FF;
+    background: linear-gradient(180deg, #e11958 0%, var(--fc-primary) 107.72%);
+    box-shadow: 0px 6px 34px rgba(132, 59, 255, 0.15);
+    color: #fff;
 }
 
 .f-nft-card {
@@ -348,6 +334,7 @@ a { color: inherit !important; }
 
 .f-nft-card-body {
     padding: 1em;
+    z-index: 3;
 }
 
 .f-nft-card-img {
@@ -362,11 +349,11 @@ a { color: inherit !important; }
 
 .f-nft-card-img-overlay {
     position: absolute;
-    top: 0;
+    bottom: 0;
     left: 0;
     width: 100%;
-    height: 100%;
-    background: linear-gradient(0deg, rgba(31, 25, 45, 0.8) 0%, rgba(0, 0, 0, 0) 58.21%);
+    height: 300px;
+    background: linear-gradient(0deg, rgba(0, 0, 0, 0.7) 20%, rgba(0, 0, 0, 0) 58.21%);
     border-radius: 2em 2em 0 0;
     z-index: 2;
 }
@@ -422,8 +409,8 @@ a { color: inherit !important; }
 }
 
 .f-accordion .accordion-item {
-    background: #1C1528;
-    border: 1px solid #9656FF;
+    background: inherit;
+    border: 1px solid var(--fc-primary);
     margin-bottom: 1em;
     border-radius: 2em;
 }
@@ -438,13 +425,9 @@ a { color: inherit !important; }
 
 .f-accordion .accordion-button {
     background-color: rgba(28, 21, 40, 0);
-    color: #9656FF;
+    color: var(--fc-primary);
     border-radius: 2em !important;
     font-weight: 300;
-}
-
-.f-accordion .accordion-button.collapsed {
-    color: #FFFFFF;
 }
 
 .f-accordion .accordion-button:focus {
@@ -461,45 +444,6 @@ a { color: inherit !important; }
 }
 
 .f-accordion .accordion-body { padding: .5rem 1.25rem 2rem; }
-.f-overlay-primary {
-    position: absolute;
-    background: linear-gradient(90deg, #14111E 0.04%, #14111E 60.3%, rgba(150, 86, 255, 0.6) 120.33%);
-    filter: blur(100px);
-    border-radius: 50%;
-    z-index: -1;
-}
-.f-overlay-primary-1 {
-    width: 20em;
-    height: 20em;
-    top: -3em;
-    left: 0em;
-}
-.f-overlay-primary-2 {
-    width: 15em;
-    height: 15em;
-    top: -3em;
-    left: 0em;
-}
-.f-overlay-primary-3 {
-    width: 20em;
-    height: 20em;
-    left: 0em;
-}
-.f-overlay-primary-4 {
-    width: 20em;
-    height: 20em;
-    left: 0em;
-}
-.f-overlay-primary-5 {
-    width: 20em;
-    height: 20em;
-    left: 0em;
-}
-.f-overlay-primary-6 {
-    width: 15em;
-    height: 15em;
-    left: 0em;
-}
 .f-welcome {
     min-height: 80vh;
     margin-top: 20%;
@@ -566,7 +510,6 @@ a { color: inherit !important; }
         position: relative;
         z-index: 1;
         padding: 0 1rem;
-        background: #151320;
         width: auto;
         height: auto;
         display: inline-block;
@@ -575,7 +518,6 @@ a { color: inherit !important; }
     .f-navbar-content li {
         font-size: 1rem;
         display: inline-block;
-        color: #EFECFF;
         padding: 0 .65rem;
     }
 }
@@ -774,6 +716,10 @@ a { color: inherit !important; }
 }
 
 
+.f-footer {
+    background: #111019;
+    color: #fff;
+}
 
 
 
